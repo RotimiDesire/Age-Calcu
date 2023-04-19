@@ -11,7 +11,7 @@ const yearDisplay = document.getElementById("year-dis");
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1;
+let currentMonth = currentDate.getMonth() + 1;
 const currentDay = currentDate.getDate();
 
 const validate = () => {
@@ -59,29 +59,28 @@ const calcAge = () => {
   let month = currentMonth - (birthDate.getMonth() + 1);
   let day = currentDay - birthDate.getDate();
 
-  // console.log(year);
-  // console.log(month);
-  // console.log(day);
+  // if (month < 0 || (month === 0 && day < 0)) {
+  //   year--;
 
-  console.log(birthDate.getFullYear());
+  // }
 
-  if (month < 0 || (month === 0 && day < 0)) {
-    year--;
-  }
-
-  let deficitMonth;
-  if (currentMonth < birthDate.getMonth() + 1) {
-    currentMonth += 12;
-    deficitMonth = currentMonth - (birthDate.getMonth() + 1);
-  } else {
-    deficitMonth = currentMonth - (birthDate.getMonth() + 1);
-  }
+  // let deficitMonth;
+  // if (currentMonth < birthDate.getMonth() + 1) {
+  //   currentMonth += 12;
+  //   deficitMonth = currentMonth - (birthDate.getMonth() + 1);
+  // } else {
+  //   deficitMonth = currentMonth - (birthDate.getMonth() + 1);
+  // }
 
   // let deficitDay = day < 0 ? 30 + day : day;
 
-  yearDisplay.innerText = year;
-  monthDisplay.innerText = deficitMonth;
-  dayDisplay.innerText = deficitDay;
+  const yearLeft = year - 1;
+  const monthLeft = 12 + month;
+  const dayLeft = day;
+
+  yearDisplay.innerText = yearLeft;
+  monthDisplay.innerText = monthLeft;
+  dayDisplay.innerText = dayLeft;
 };
 
 form.addEventListener("submit", (e) => {
