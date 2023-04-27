@@ -62,11 +62,6 @@ const calcAge = () => {
   let month = currentMonth - birthMonth;
   let day = currentDay - birthDate.getDate();
 
-  // if (month < 0 || (month === 0 && day < 0)) {
-  //   year--;
-
-  // }
-
   if (month < 0 || (month === 0 && day < 0)) {
     year--;
   }
@@ -81,13 +76,9 @@ const calcAge = () => {
 
   let deficitDay = day < 0 ? 30 + day : day;
 
-  const yearLeft = year - 1;
-  const monthLeft = 12 + month;
-  const dayLeft = day;
-
-  yearDisplay.innerText = yearLeft;
-  monthDisplay.innerText = monthLeft;
-  dayDisplay.innerText = dayLeft;
+  yearDisplay.innerText = year;
+  monthDisplay.innerText = deficitMonth;
+  dayDisplay.innerText = deficitDay;
 };
 
 form.addEventListener("submit", (e) => {
